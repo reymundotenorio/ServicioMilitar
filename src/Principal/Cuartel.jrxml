@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cuartel" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b47268e-1d18-4d7e-9001-075d9ef95bd2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Cuartel."ID_Cuartel" AS Cuartel_ID_Cuartel,
+     Cuartel."Nombre" AS Cuartel_Nombre,
+     Cuartel."Direccion" AS Cuartel_Direccion
+FROM
+     "dbo"."Cuartel" Cuartel]]>
+	</queryString>
+	<field name="Cuartel_ID_Cuartel" class="java.lang.Integer"/>
+	<field name="Cuartel_Nombre" class="java.lang.String"/>
+	<field name="Cuartel_Direccion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d6be1928-fbbb-4856-aea2-39dc26e3e175" style="Title" x="270" y="0" width="263" height="62"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Cuartel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dd0c0942-9f31-42e8-9a27-48d30bcc3f74" style="SubTitle" x="303" y="62" width="196" height="22"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Lista de Cuartel]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="7d8e846d-f3bb-47ad-a715-a4dfa4bb7336" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="c8b78c26-8840-481a-8b1b-4f1eb163a00f" style="Column header" x="0" y="0" width="267" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Código Cuartel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5e762346-18b3-404b-ad6f-da6edbcb0f93" style="Column header" x="267" y="0" width="267" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a6a2f141-9575-4ca0-a989-5d8fa2d9ff2c" style="Column header" x="534" y="0" width="267" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="2dd55e62-e6f6-47ed-b758-e0bade825af5" style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8f0fbcd0-e255-4815-9e21-20c812ff4121" style="Detail" x="0" y="0" width="267" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Cuartel_ID_Cuartel}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f3b7a71e-4d95-4a3c-828e-4c5e9dbf7306" style="Detail" x="267" y="0" width="267" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Cuartel_Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f258e822-57ab-483b-903e-a2e3c374fb25" style="Detail" x="534" y="0" width="267" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Cuartel_Direccion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement uuid="e9aa48cf-ca46-423d-9047-b7aa111bba61" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="df365318-ed1a-4ca9-b046-399c6194f21e" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="a970b57a-2440-42e7-bafb-3372e2c19452" style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="626abe3d-9dc7-41ec-bf09-f71ae388f958" style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="58e4f2a4-0624-46e1-9c56-38800f48be16" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
